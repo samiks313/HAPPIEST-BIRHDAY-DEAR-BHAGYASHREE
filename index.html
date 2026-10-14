@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Bhagyashree 🎂</title>
+
 <style>
 *{box-sizing:border-box}
 body{
@@ -55,8 +56,10 @@ button:active{transform:scale(.97)}
 footer{margin-top:22px;font-size:13px;color:#a47793}
 </style>
 </head>
+
 <body>
 <div id="confetti"></div>
+
 <!-- 1. WELCOME -->
 <section class="screen active" id="home">
   <div class="sparkle">✨ 🌙 ✨</div>
@@ -69,6 +72,7 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
   <button onclick="show('candles')">Start Your Surprise ✨</button>
   <footer>Made with endless love, just for you ❤️</footer>
 </section>
+
 <!-- 2. BLOW CANDLES -->
 <section class="screen" id="candles">
   <div class="card">
@@ -86,6 +90,7 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
     </button>
   </div>
 </section>
+
 <!-- 3. MEMORIES MENU -->
 <section class="screen" id="memories">
   <div class="sparkle">📸 💌 📸</div>
@@ -95,15 +100,16 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
   <button onclick="show('gifts')">Next Surprise 🎁</button>
   <button class="secondary" onclick="show('home')">Back to Start</button>
 </section>
-<!-- 4. ONE PHOTO PER SCREEN -->
+
+<!-- 4. INDIVIDUAL PHOTO SCREENS -->
 <section class="screen" id="photoPage">
   <div class="card">
     <p class="small" id="photoCounter"></p>
     <h2 id="photoTitle"></h2>
-    <img id="photoImage" class="photo" alt="Family memory"
+    <img id="photoImage" class="photo" alt="Birthday memory"
       onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex'">
     <div id="photoFallback" class="photo-placeholder" style="display:none">
-      📸 Add your photo to see this memory
+      📸 Add the correct photo to see this memory
     </div>
     <p id="photoMessage"></p>
     <p class="small" id="photoFrom"></p>
@@ -111,7 +117,8 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
     <button class="secondary" onclick="show('memories')">All Memories</button>
   </div>
 </section>
-<!-- 5. GIFTS -->
+
+<!-- 5. GIFTS MENU -->
 <section class="screen" id="gifts">
   <div class="sparkle">🎁 ✨ 🎀</div>
   <h1>A Few Little Gifts</h1>
@@ -119,6 +126,8 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
   <div id="giftMenu" class="card"></div>
   <button onclick="show('final')">Open Your Final Letter 💌</button>
 </section>
+
+<!-- 6. INDIVIDUAL GIFT SCREENS -->
 <section class="screen" id="giftPage">
   <div class="card">
     <p class="small" id="giftCounter"></p>
@@ -130,92 +139,115 @@ footer{margin-top:22px;font-size:13px;color:#a47793}
     <button class="secondary" onclick="show('gifts')">All Gifts</button>
   </div>
 </section>
-<!-- 6. FINAL FAMILY LETTER -->
+
+<!-- 7. FINAL FAMILY LETTER -->
 <section class="screen" id="final">
   <div class="card">
     <p class="small">FROM YOUR FAMILY, WITH LOVE</p>
     <h1>For Our Bhagyashree 💖</h1>
+
     <img src="AP000220.jpg" class="photo" alt="Our family"
       onerror="this.style.display='none';document.getElementById('familyFallback').style.display='flex'">
     <div id="familyFallback" class="photo-placeholder" style="display:none">
       👨‍👩‍👧‍👦 Add AP000220.jpg for your final family photo
     </div>
+
     <div class="letter">
 My dearest Bhagyashree,
+
 On your birthday, we want you to remember one very important thing: you are loved more than words can ever explain.
+
 Life will bring you beautiful opportunities, unexpected changes, and sometimes difficult days. Through every season, never forget how special you are and how much potential you carry within yourself.
+
 Dream without fear. Work towards those dreams with confidence. Never compare your journey with someone else's, because your story is uniquely yours. You don't need to have everything figured out today. Take one step at a time, learn from every experience, and trust yourself enough to keep going.
+
 Choose people who respect you, protect your happiness, and never stop becoming the person you want to be. Celebrate your little achievements, be kind to yourself on difficult days, and never let a temporary setback make you doubt your future.
+
 And whenever life feels overwhelming, remember that you have a family who loves you, believes in you, and will always cheer for you.
+
 May your new year of life be filled with good health, genuine love, wonderful adventures, success, and dreams coming true. May you always have a reason to smile and the courage to follow your heart.
+
 No matter how much you grow, how far you go, or how many dreams you achieve, you will always have a special place in our hearts.
+
 Happy Birthday, our beautiful girl. Keep shining. The world is waiting to see all the wonderful things you will do. ❤️
+
 With all our love,
 Bhaiya and the whole family ❤️
     </div>
+
     <div class="sparkle">🌸 💗 🌸</div>
     <h2>You are loved. Always.</h2>
     <button onclick="celebrate()">One Last Birthday Surprise 🎉</button>
     <button class="secondary" onclick="show('home')">Relive the Surprise ↻</button>
   </div>
 </section>
+
 <script>
 /*
-  PHOTO FILES:
-  Put your photos in the same folder as index.html.
-  Replace a filename below if your photo has a different name.
-  You can edit the titles and messages as you like.
+  PHOTO ORDER:
+  1. Family
+  2. Baba
+  3. Aai
+  4. Tai
+  5. Dada
+  6. Vahini
+  7. Bhagyashree's own photo
+  8. Bhagyashree's own photo
+
+  Keep the exact filenames matching your uploaded photos.
 */
+
 const photos = [
   {
     file:"AP000220.jpg",
-    title:"A Memory Full of Love ❤️",
-    from:"With love, from Aai",
-    message:"My child, no matter how grown-up you become, you will always be my little girl. May your smile never fade, may your dreams come true, and may happiness always find you. My blessings are always with you. ❤️"
+    title:"Our Beautiful Family ❤️",
+    from:"With love, from the whole family",
+    message:"Our family is one of life's greatest gifts. No matter where life takes us, the love we share will always bring us together. May our bond keep growing stronger with every passing year. ❤️"
   },
   {
     file:"AP000225.jpg",
-    title:"Always Keep Smiling 🌸",
-    from:"With love, from Baba",
-    message:"Happy Birthday, my daughter! Always believe in yourself, work hard, and move forward with courage. May you achieve everything you dream of, and may I always have reasons to be proud of you. ❤️"
+    title:"Baba's Blessings 🤍",
+    from:"बाबांकडून प्रेमाने",
+    message:"माझ्या लाडक्या मुलीला वाढदिवसाच्या खूप खूप शुभेच्छा! ❤️ आयुष्यात नेहमी स्वतःवर विश्वास ठेव, मेहनत करत राहा आणि धाडसाने पुढे जा. तुझी प्रत्येक स्वप्नं पूर्ण होवोत आणि तुझ्या चेहऱ्यावरचं हसू कायम राहो. तुझ्या प्रत्येक यशाचा मला अभिमान वाटो, हीच इच्छा! बाबा म्हणून माझे आशीर्वाद नेहमी तुझ्यासोबत आहेत."
   },
   {
     file:"AP000228.jpg",
-    title:"Partners in Crime 😂",
-    from:"With love, from Dada",
-    message:"Happy Birthday, you little troublemaker! No matter how much we fight or tease each other, your brother will always have your back. Dream big, stay strong, and never let anyone make you feel that you are not enough. Love you always! 🫂❤️"
+    title:"Aai's Endless Love ❤️",
+    from:"आईकडून प्रेमाने",
+    message:"माझ्या बाळा, वाढदिवसाच्या खूप खूप शुभेच्छा! ❤️ तू कितीही मोठी झालीस तरी माझ्यासाठी नेहमी माझं लहान बाळच राहशील. तुझ्या आयुष्यात नेहमी आनंद, सुख आणि समाधान नांदो. तुझी प्रत्येक इच्छा पूर्ण होवो आणि तुला प्रत्येक संकटाला सामोरं जाण्याची ताकद मिळो. तुझ्या चेहऱ्यावरचं हसू असंच कायम राहू दे. आईचा आशीर्वाद नेहमी तुझ्यासोबत आहे. खूप प्रेम!"
   },
   {
     file:"AP000409.jpg",
-    title:"A Bond Beyond Relations 🩷",
-    from:"With love, from Vahini",
-    message:"Happy Birthday to my sweetest sister-in-law! I hope our bond always feels like friendship. Believe in yourself, chase your dreams, and never forget your worth. Keep shining and remember that I will always be cheering for you! 💕"
+    title:"A Special Bond with Tai 🦋",
+    from:"With love, from Tai",
+    message:"Happy Birthday, my beautiful girl! ❤️ Never compare your journey with anyone else's. Trust yourself, protect your peace, and keep working towards your dreams. You are stronger than you know, and I hope you achieve everything your heart desires. No matter what life brings, always remember how special you are. Keep smiling and keep shining! 🫶✨"
   },
   {
     file:"AP000263.jpg",
-    title:"Dream Big, Little Star ✨",
-    from:"With love, from Tai",
-    message:"Happy Birthday, my beautiful girl! Never compare your journey with anyone else's. Trust yourself, protect your peace, and keep working towards your dreams. You are stronger than you know, and I hope you achieve everything your heart desires. 🫶"
+    title:"Partners in Crime 😂",
+    from:"With love, from Dada",
+    message:"Happy Birthday, you little troublemaker! ❤️ No matter how much we fight, tease each other, or annoy one another, you will always be my little sister, and I'll always be there for you. Dream big, work hard, and never let anyone make you feel like you're not enough. Your brother will always have your back. Keep smiling and making us proud. Love you always! 🫂❤️"
   },
   {
     file:"HR6_4652.jpg",
-    title:"Little Moments, Big Memories 📸",
-    from:"With love, from your family",
-    message:"The smallest moments often become our most precious memories. Wherever life takes you, keep these memories close and remember the love that surrounds you."
+    title:"A Bond Like Friendship 🌸",
+    from:"With love, from Vahini",
+    message:"Happy Birthday to my sweetest sister-in-law! 🩷 You may be my sister-in-law by relation, but I hope our bond always feels like that of two friends who can laugh together, share secrets, and support each other. Always believe in yourself, chase your dreams, and never forget your worth. Keep shining and remember that I will always be cheering for you. So much love! 💕"
   },
   {
     file:"YSW02029.jpg",
-    title:"A Future Full of Possibilities 🌈",
-    from:"With love, from all of us",
-    message:"May the coming year bring new adventures, beautiful opportunities, and the confidence to chase every dream. Your best chapters are still waiting to be written!"
+    title:"Just Being You ✨",
+    from:"A little birthday love, just for you",
+    message:"This is your reminder that you don't have to be anyone else to be special. Keep discovering yourself, trying new things, and creating a life that makes you happy. Your story is yours to write. Make it beautiful, brave, and full of wonderful memories. 💖"
   },
   {
     file:"AP000252.jpg",
-    title:"Forever Our Favourite Girl 💖",
-    from:"With love, from the whole family",
-    message:"Today and always, we wish you happiness, courage, love, and success. Never forget how special you are to all of us. Happy Birthday, Bhagyashree!"
+    title:"Your Next Beautiful Chapter 🌈",
+    from:"With love, from all of us",
+    message:"A new year of life means new chances, new dreams, and beautiful possibilities. May you always have the courage to follow your heart, the strength to overcome challenges, and the people you love beside you. The best is yet to come, Bhagyashree! Keep dreaming and keep shining. ❤️"
   }
 ];
+
 const gifts = [
   {
     title:"The Gift of Happiness 💗",
@@ -234,10 +266,12 @@ const gifts = [
     message:"This is a reminder that you never have to face life alone. Your family is always rooting for you, celebrating you, and wishing the best for you."
   }
 ];
+
 let photoIndex = 0;
 let giftIndex = 0;
 let giftOpened = false;
 let candlesBlown = false;
+
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -245,6 +279,7 @@ function show(id){
   if(id==="memories") renderMemoryMenu();
   if(id==="gifts") renderGiftMenu();
 }
+
 function renderMemoryMenu(){
   const menu=document.getElementById("memoryMenu");
   menu.innerHTML="";
@@ -258,6 +293,7 @@ function renderMemoryMenu(){
     menu.appendChild(b);
   });
 }
+
 function openPhoto(i){
   photoIndex=i;
   const p=photos[i];
@@ -278,10 +314,12 @@ function openPhoto(i){
   document.getElementById("photoFrom").textContent=p.from;
   show("photoPage");
 }
+
 function nextPhoto(){
   if(photoIndex<photos.length-1) openPhoto(photoIndex+1);
   else show("gifts");
 }
+
 function renderGiftMenu(){
   const menu=document.getElementById("giftMenu");
   menu.innerHTML="";
@@ -295,6 +333,7 @@ function renderGiftMenu(){
     menu.appendChild(b);
   });
 }
+
 function openGift(i){
   giftIndex=i;
   giftOpened=false;
@@ -307,6 +346,7 @@ function openGift(i){
   document.getElementById("nextGiftButton").style.display="none";
   show("giftPage");
 }
+
 function revealGift(){
   if(giftOpened)return;
   giftOpened=true;
@@ -318,10 +358,12 @@ function revealGift(){
   document.getElementById("nextGiftButton").style.display="inline-block";
   confetti();
 }
+
 function nextGift(){
   if(giftIndex<gifts.length-1) openGift(giftIndex+1);
   else show("final");
 }
+
 function blowCandles(){
   if(candlesBlown)return;
   candlesBlown=true;
@@ -332,6 +374,7 @@ function blowCandles(){
   document.getElementById("continueCandles").style.display="inline-block";
   confetti();
 }
+
 function confetti(){
   const box=document.getElementById("confetti");
   const symbols=["🎉","✨","💖","🌸","🎊","💕"];
@@ -346,10 +389,12 @@ function confetti(){
     setTimeout(()=>piece.remove(),4500);
   }
 }
+
 function celebrate(){
   confetti();
   setTimeout(()=>alert("Happy Birthday, Bhagyashree! 🎂❤️\n\nKeep dreaming. Keep shining. You are so loved!"),150);
 }
+
 renderMemoryMenu();
 renderGiftMenu();
 </script>
