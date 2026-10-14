@@ -2,317 +2,356 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Happy Birthday Bhagyashree 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhagyashree 🎂</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;text-align:center;font-family:Georgia,serif;color:#63345e;
- background:linear-gradient(135deg,#ffe0ed,#e8e0ff,#fff1d7)
+  margin:0;
+  font-family:Georgia,serif;
+  color:#59334b;
+  background:linear-gradient(145deg,#fff1f7,#f6eaff,#fff8ee);
+  text-align:center;
 }
-header{padding:30px 15px}
-h1{font-size:clamp(34px,8vw,55px);color:#b13d87}
-h2{color:#a13c83}
-p{line-height:1.8}
-button,.btn{
- background:#a13c83;color:white;border:0;padding:12px 18px;
- border-radius:25px;margin:6px;cursor:pointer;text-decoration:none;
- display:inline-block;font-size:15px
+.screen{display:none;min-height:100vh;padding:28px 18px 45px}
+.screen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+h1{font-size:clamp(30px,8vw,46px);margin:12px 0;color:#b34f83}
+h2{color:#a64c7b}
+p{line-height:1.8;font-size:17px}
+.small{font-size:14px;color:#9a6a88}
+button{
+  border:0;border-radius:28px;padding:14px 23px;margin:8px;
+  background:#c45d91;color:white;font-size:15px;cursor:pointer;
+  box-shadow:0 5px 15px #c45d9130;
 }
+button.secondary{background:#fff;color:#a64c7b;border:1px solid #e5b4ce}
+button:active{transform:scale(.97)}
 .card{
- background:#ffffffdf;border-radius:24px;padding:22px 15px;
- margin:16px auto;width:94%;max-width:800px;
- box-shadow:0 7px 24px #8c458522
+  width:100%;max-width:480px;background:#ffffffd9;
+  border:1px solid #f0cddd;border-radius:24px;
+  padding:24px 19px;box-shadow:0 12px 35px #8e47751a;
 }
-.page{display:none;min-height:80vh;padding:15px 10px}
-.page.active{display:block}
-.gallery{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px;max-width:1000px;margin:20px auto
+.photo{
+  width:100%;max-width:470px;height:auto;max-height:58vh;
+  object-fit:contain;background:#f9e7f0;border-radius:19px;
+  margin:12px auto;display:block;
 }
-figure{margin:0;background:#ffffffdf;padding:8px;border-radius:18px}
-figure img{
- width:100%;height:auto;max-height:480px;object-fit:contain;
- border-radius:12px
+.photo-placeholder{
+  width:100%;max-width:470px;min-height:230px;border-radius:19px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#ffe0ed,#eadcff);
+  font-size:18px;padding:25px;margin:12px auto;
 }
-figcaption{padding:12px 5px;font-size:16px}
-.gifts{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px;max-width:600px;margin:20px auto
-}
-.gift{
- background:#ffffffdf;border-radius:20px;padding:22px 8px;
- cursor:pointer;font-size:18px
-}
-.gift span{display:block;font-size:48px;margin-bottom:10px}
-.memory-photo{
- width:100%;max-width:800px;max-height:70vh;
- object-fit:contain;border-radius:18px
-}
-.message{
- background:#fffafcdd;padding:22px;border-radius:20px;
- margin:18px auto;max-width:800px;font-size:18px;line-height:1.9
-}
-.letter{text-align:left}
-.candle{display:inline-block;font-size:30px;margin:8px}
-.flame{display:block;font-size:23px;height:28px;animation:flicker .5s infinite alternate}
-@keyframes flicker{to{transform:scale(1.2);opacity:.5}}
-.cake{font-size:80px;margin:12px}
-#party{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:10}
-.confetti{position:absolute;top:-30px;animation:fall 3s linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
-footer{padding:25px}
-@media(max-width:360px){
- .gallery,.gifts{grid-template-columns:1fr}
-}
+.cake{font-size:85px;cursor:pointer;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(-8px)}}
+.candle{font-size:48px;display:inline-block;transition:.4s}
+.candle.off{opacity:.25;transform:scale(.8)}
+.giftbox{font-size:82px;cursor:pointer;animation:bounce 1.6s infinite}
+.letter{text-align:left;white-space:pre-line}
+#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
+.confetti-piece{position:absolute;top:-20px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.sparkle{font-size:24px;letter-spacing:8px}
+footer{margin-top:22px;font-size:13px;color:#a47793}
 </style>
 </head>
 <body>
-<header id="top">
-<div style="font-size:45px">🎀 ✨ 🎀</div>
-<h1>Happy Birthday!</h1>
-<h2>Bhagyashree 💗</h2>
-<p>Today is all about you, your dreams and your happiness! 🌸</p>
-<p>🎉 A birthday universe made with lots of love 🎉</p>
-<button onclick="showPage('home')">🏠 Home</button>
-<button onclick="showPage('memories')">📸 Memories</button>
-<button onclick="showPage('gifts')">🎁 Gifts</button>
-</header>
-<!-- HOME PAGE -->
-<div id="home" class="page active">
-<div class="card">
-<h2>🎂 Make a Birthday Wish</h2>
-<p>Close your eyes, make a wish and blow out the candles!</p>
-<div id="candles">
-<span class="candle"><span class="flame">🔥</span>🕯️</span>
-<span class="candle"><span class="flame">🔥</span>🕯️</span>
-<span class="candle"><span class="flame">🔥</span>🕯️</span>
-</div>
-<div class="cake">🎂</div>
-<button onclick="blow()">💨 Blow Out Candles</button>
-<p id="wish"></p>
-</div>
-<div class="card">
-<h2>💝 A Little Birthday Reminder</h2>
-<p>You deserve happiness, love, peace and every beautiful thing life has to offer.</p>
-<p>Keep smiling, keep dreaming and never underestimate yourself. ✨</p>
-</div>
-<div class="card">
-<h2>Your Birthday Adventure 💗</h2>
-<button onclick="showPage('memories')">Open Memories 📸</button>
-<button onclick="showPage('gifts')">Open Gifts 🎁</button>
-<button onclick="showPage('letter')">Read Your Letter 💌</button>
-</div>
-</div>
-<!-- MEMORIES GALLERY -->
-<div id="memories" class="page">
-<h1>📸 Beautiful Memories</h1>
-<p>Tap each picture to read a special message. 💕</p>
-<div class="gallery" id="gallery"></div>
-<button onclick="showPage('home')">⬅ Home</button>
-<button onclick="showPage('gifts')">Next: Gifts ➡</button>
-</div>
-<!-- INDIVIDUAL MEMORY PAGE -->
-<div id="memory" class="page">
-<h1 id="memoryTitle"></h1>
-<img id="memoryPhoto" class="memory-photo" alt="Birthday memory">
-<div id="memoryMessage" class="message"></div>
-<button onclick="showPage('memories')">⬅ All Memories</button>
-<button onclick="nextMemory()">Next Memory ➡</button>
-</div>
-<!-- GIFTS PAGE -->
-<div id="gifts" class="page">
-<h1>🎁 Open Your Surprises</h1>
-<p>Every gift has a little message for you. 💖</p>
-<div class="gifts" id="giftGrid"></div>
-<button onclick="showPage('home')">⬅ Home</button>
-<button onclick="showPage('letter')">Final Letter 💌</button>
-</div>
-<!-- INDIVIDUAL GIFT PAGE -->
-<div id="giftPage" class="page">
-<div style="font-size:75px">🎁✨💝</div>
-<h1 id="giftTitle"></h1>
-<div id="giftMessage" class="message"></div>
-<button onclick="party()">🎊 Celebrate!</button>
-<button onclick="showPage('gifts')">⬅ All Gifts</button>
-<button onclick="nextGift()">Open Another Gift ➡</button>
-</div>
-<!-- FINAL FAMILY LETTER -->
-<div id="letter" class="page">
-<div style="font-size:50px">💌 🌸 💗</div>
-<h1>A Letter for You</h1>
-<h2>With love, from Bhaiya and the whole family ❤️</h2>
-<div class="card">
-<img src="AP000220.jpg" class="memory-photo" alt="Our Beautiful Family">
-<div class="message letter">
-<p><b>Dear Bhagyashree,</b></p>
-<p>On your birthday, we want you to remember one thing: you are capable of far more than you sometimes imagine. Never make yourself smaller to fit into someone else's expectations, and never let one difficult day make you question your worth.</p>
-<p>Keep dreaming big, keep learning, and have the courage to take the first step—even when you don't know exactly where the road will lead. You don't have to have everything figured out today. Every small step, every lesson, and every time you try again is part of your growth.</p>
-<p>Choose people who respect your heart, protect your peace, and celebrate your happiness. Be kind, but remember to be kind to yourself too. Take care of your health, laugh freely, enjoy the little things, and never forget that asking for help is also a sign of strength.</p>
-<p>No matter how much life changes or how far your dreams take you, your family will always wish the very best for you. We will always be proud of you—not only for what you achieve, but for the person you are becoming.</p>
-<p>May this new year of your life bring you confidence, good health, genuine happiness, beautiful opportunities, and the courage to chase every dream that lives in your heart.</p>
-<p><b>Keep shining, keep smiling, and always believe in yourself. The world has so many beautiful things waiting for you. 💖</b></p>
-<p>Happy Birthday, Bhagyashree! We love you more than words can say.</p>
-<p><b>With all our love,<br>Bhaiya and the whole family ❤️</b></p>
-</div>
-<button onclick="party()">🎊 Birthday Poppers!</button>
-<button onclick="showPage('home')">🏠 Home</button>
-</div>
-</div>
-<footer>Made with lots of love 💕 Happy Birthday, Bhagyashree! 🎂</footer>
-<div id="party"></div>
+<div id="confetti"></div>
+<!-- 1. WELCOME -->
+<section class="screen active" id="home">
+  <div class="sparkle">✨ 🌙 ✨</div>
+  <p class="small">A LITTLE UNIVERSE MADE WITH LOVE</p>
+  <h1>Happy Birthday,<br>Bhagyashree! 🎂</h1>
+  <p>Today, the world celebrates you.<br>
+  And your family has a little surprise for you. 💗</p>
+  <div class="cake" onclick="show('candles')">🎂</div>
+  <p>Ready to make a birthday wish?</p>
+  <button onclick="show('candles')">Start Your Surprise ✨</button>
+  <footer>Made with endless love, just for you ❤️</footer>
+</section>
+<!-- 2. BLOW CANDLES -->
+<section class="screen" id="candles">
+  <div class="card">
+    <p class="small">MAKE A WISH, BEAUTIFUL GIRL</p>
+    <h1>Your Special Moment 🕯️</h1>
+    <div id="flames">
+      <span class="candle">🕯️</span>
+      <span class="candle">🕯️</span>
+      <span class="candle">🕯️</span>
+    </div>
+    <p id="candleText">Close your eyes, make a wish,<br>and blow out your candles! 💫</p>
+    <button id="blowButton" onclick="blowCandles()">Blow the Candles 🌬️</button>
+    <button id="continueCandles" style="display:none" onclick="show('memories')">
+      Open Your Memories 📸
+    </button>
+  </div>
+</section>
+<!-- 3. MEMORIES MENU -->
+<section class="screen" id="memories">
+  <div class="sparkle">📸 💌 📸</div>
+  <h1>Our Little Memories</h1>
+  <p>Every picture holds a story.<br>Every story holds a little piece of love.</p>
+  <div id="memoryMenu" class="card"></div>
+  <button onclick="show('gifts')">Next Surprise 🎁</button>
+  <button class="secondary" onclick="show('home')">Back to Start</button>
+</section>
+<!-- 4. ONE PHOTO PER SCREEN -->
+<section class="screen" id="photoPage">
+  <div class="card">
+    <p class="small" id="photoCounter"></p>
+    <h2 id="photoTitle"></h2>
+    <img id="photoImage" class="photo" alt="Family memory"
+      onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex'">
+    <div id="photoFallback" class="photo-placeholder" style="display:none">
+      📸 Add your photo to see this memory
+    </div>
+    <p id="photoMessage"></p>
+    <p class="small" id="photoFrom"></p>
+    <button onclick="nextPhoto()">Next Memory 💗</button>
+    <button class="secondary" onclick="show('memories')">All Memories</button>
+  </div>
+</section>
+<!-- 5. GIFTS -->
+<section class="screen" id="gifts">
+  <div class="sparkle">🎁 ✨ 🎀</div>
+  <h1>A Few Little Gifts</h1>
+  <p>Tap a gift to reveal a special wish.</p>
+  <div id="giftMenu" class="card"></div>
+  <button onclick="show('final')">Open Your Final Letter 💌</button>
+</section>
+<section class="screen" id="giftPage">
+  <div class="card">
+    <p class="small" id="giftCounter"></p>
+    <div class="giftbox" id="giftEmoji" onclick="revealGift()">🎁</div>
+    <h2 id="giftTitle">A Little Surprise</h2>
+    <p id="giftMessage">Tap the gift to open it.</p>
+    <button id="giftButton" onclick="revealGift()">Open My Gift 🎀</button>
+    <button id="nextGiftButton" style="display:none" onclick="nextGift()">Next Gift 🎁</button>
+    <button class="secondary" onclick="show('gifts')">All Gifts</button>
+  </div>
+</section>
+<!-- 6. FINAL FAMILY LETTER -->
+<section class="screen" id="final">
+  <div class="card">
+    <p class="small">FROM YOUR FAMILY, WITH LOVE</p>
+    <h1>For Our Bhagyashree 💖</h1>
+    <img src="AP000220.jpg" class="photo" alt="Our family"
+      onerror="this.style.display='none';document.getElementById('familyFallback').style.display='flex'">
+    <div id="familyFallback" class="photo-placeholder" style="display:none">
+      👨‍👩‍👧‍👦 Add AP000220.jpg for your final family photo
+    </div>
+    <div class="letter">
+My dearest Bhagyashree,
+On your birthday, we want you to remember one very important thing: you are loved more than words can ever explain.
+Life will bring you beautiful opportunities, unexpected changes, and sometimes difficult days. Through every season, never forget how special you are and how much potential you carry within yourself.
+Dream without fear. Work towards those dreams with confidence. Never compare your journey with someone else's, because your story is uniquely yours. You don't need to have everything figured out today. Take one step at a time, learn from every experience, and trust yourself enough to keep going.
+Choose people who respect you, protect your happiness, and never stop becoming the person you want to be. Celebrate your little achievements, be kind to yourself on difficult days, and never let a temporary setback make you doubt your future.
+And whenever life feels overwhelming, remember that you have a family who loves you, believes in you, and will always cheer for you.
+May your new year of life be filled with good health, genuine love, wonderful adventures, success, and dreams coming true. May you always have a reason to smile and the courage to follow your heart.
+No matter how much you grow, how far you go, or how many dreams you achieve, you will always have a special place in our hearts.
+Happy Birthday, our beautiful girl. Keep shining. The world is waiting to see all the wonderful things you will do. ❤️
+With all our love,
+Bhaiya and the whole family ❤️
+    </div>
+    <div class="sparkle">🌸 💗 🌸</div>
+    <h2>You are loved. Always.</h2>
+    <button onclick="celebrate()">One Last Birthday Surprise 🎉</button>
+    <button class="secondary" onclick="show('home')">Relive the Surprise ↻</button>
+  </div>
+</section>
 <script>
-const memories = [
-{
- photo:"AP000220.jpg",
- title:"Our Beautiful Family ❤️",
- message:"Family is where love begins and never ends. May you always feel surrounded by people who cheer for you, protect you and celebrate every little happiness of yours."
-},
-{
- photo:"AP000225.jpg",
- title:"Love and Blessings 💖",
- message:"May Baba's blessings always guide your steps. Whenever life feels difficult, remember that you carry so much love and strength with you."
-},
-{
- photo:"AP000228.jpg",
- title:"A Mother's Endless Love 🌷",
- message:"A mother's love is a blessing that stays with us in every season of life. May Aai's love always give you courage, comfort and a reason to smile."
-},
-{
- photo:"AP000409.jpg",
- title:"A Memory to Treasure ✨",
- message:"Some moments become memories, and some memories become treasures. Keep collecting beautiful moments and never forget how precious you are to all of us."
-},
-{
- photo:"AP000263.jpg",
- title:"Always There for You 🤍",
- message:"No matter how much life changes, may you always know that your family is standing beside you. You never have to face every challenge alone."
-},
-{
- photo:"HR6_4652.jpg",
- title:"Bhagyashree Tai 💗",
- message:"Keep your beautiful heart, your kindness and your smile. You make ordinary moments brighter just by being yourself."
-},
-{
- photo:"YSW02029.jpg",
- title:"Sweet Moments Together 🌸",
- message:"May we always make time for laughter, silly conversations, little celebrations and memories that we'll talk about for years."
-},
-{
- photo:"AP000252.jpg",
- title:"Keep Smiling Always 🥰",
- message:"Your smile is beautiful, but your courage is even more beautiful. May this year bring you reasons to smile from your heart."
-}
+/*
+  PHOTO FILES:
+  Put your photos in the same folder as index.html.
+  Replace a filename below if your photo has a different name.
+  You can edit the titles and messages as you like.
+*/
+const photos = [
+  {
+    file:"AP000220.jpg",
+    title:"A Memory Full of Love ❤️",
+    from:"With love, from Aai",
+    message:"My child, no matter how grown-up you become, you will always be my little girl. May your smile never fade, may your dreams come true, and may happiness always find you. My blessings are always with you. ❤️"
+  },
+  {
+    file:"AP000225.jpg",
+    title:"Always Keep Smiling 🌸",
+    from:"With love, from Baba",
+    message:"Happy Birthday, my daughter! Always believe in yourself, work hard, and move forward with courage. May you achieve everything you dream of, and may I always have reasons to be proud of you. ❤️"
+  },
+  {
+    file:"AP000228.jpg",
+    title:"Partners in Crime 😂",
+    from:"With love, from Dada",
+    message:"Happy Birthday, you little troublemaker! No matter how much we fight or tease each other, your brother will always have your back. Dream big, stay strong, and never let anyone make you feel that you are not enough. Love you always! 🫂❤️"
+  },
+  {
+    file:"AP000409.jpg",
+    title:"A Bond Beyond Relations 🩷",
+    from:"With love, from Vahini",
+    message:"Happy Birthday to my sweetest sister-in-law! I hope our bond always feels like friendship. Believe in yourself, chase your dreams, and never forget your worth. Keep shining and remember that I will always be cheering for you! 💕"
+  },
+  {
+    file:"AP000263.jpg",
+    title:"Dream Big, Little Star ✨",
+    from:"With love, from Tai",
+    message:"Happy Birthday, my beautiful girl! Never compare your journey with anyone else's. Trust yourself, protect your peace, and keep working towards your dreams. You are stronger than you know, and I hope you achieve everything your heart desires. 🫶"
+  },
+  {
+    file:"HR6_4652.jpg",
+    title:"Little Moments, Big Memories 📸",
+    from:"With love, from your family",
+    message:"The smallest moments often become our most precious memories. Wherever life takes you, keep these memories close and remember the love that surrounds you."
+  },
+  {
+    file:"YSW02029.jpg",
+    title:"A Future Full of Possibilities 🌈",
+    from:"With love, from all of us",
+    message:"May the coming year bring new adventures, beautiful opportunities, and the confidence to chase every dream. Your best chapters are still waiting to be written!"
+  },
+  {
+    file:"AP000252.jpg",
+    title:"Forever Our Favourite Girl 💖",
+    from:"With love, from the whole family",
+    message:"Today and always, we wish you happiness, courage, love, and success. Never forget how special you are to all of us. Happy Birthday, Bhagyashree!"
+  }
 ];
 const gifts = [
-{
- title:"A Reminder of Love 💖",
- message:"You are loved more than words can ever say. On days when you doubt yourself, remember how many hearts are cheering for you."
-},
-{
- title:"Confidence Boost 🌟",
- message:"Believe in yourself. You are capable of amazing things, even on days when progress feels slow."
-},
-{
- title:"A Wish for Happiness 🌸",
- message:"May your days be filled with peace, laughter, good health and people who make you feel safe and valued."
-},
-{
- title:"A Dream for Your Future 🥳",
- message:"Your dreams matter. Keep going, keep learning and never stop believing that beautiful things are possible for you."
-}
+  {
+    title:"The Gift of Happiness 💗",
+    message:"May you always find reasons to smile, people who make you feel loved, and moments that make life beautiful."
+  },
+  {
+    title:"The Gift of Confidence 🦋",
+    message:"Believe in your abilities even when the road feels difficult. You are capable of more than you imagine."
+  },
+  {
+    title:"The Gift of Dreams ✨",
+    message:"May you have the courage to dream big and the strength to turn those dreams into reality, one step at a time."
+  },
+  {
+    title:"The Gift of Family 🫂",
+    message:"This is a reminder that you never have to face life alone. Your family is always rooting for you, celebrating you, and wishing the best for you."
+  }
 ];
-let currentMemory = 0;
-let currentGift = 0;
+let photoIndex = 0;
+let giftIndex = 0;
+let giftOpened = false;
 let candlesBlown = false;
-function showPage(id){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- window.scrollTo(0,0);
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="memories") renderMemoryMenu();
+  if(id==="gifts") renderGiftMenu();
 }
-function buildGallery(){
- const gallery=document.getElementById('gallery');
- memories.forEach((m,i)=>{
-  const fig=document.createElement('figure');
-  const img=document.createElement('img');
-  img.src=m.photo;
-  img.alt=m.title;
-  img.loading='lazy';
-  const cap=document.createElement('figcaption');
-  cap.textContent=m.title;
-  fig.appendChild(img);
-  fig.appendChild(cap);
-  fig.style.cursor='pointer';
-  fig.onclick=()=>openMemory(i);
-  gallery.appendChild(fig);
- });
+function renderMemoryMenu(){
+  const menu=document.getElementById("memoryMenu");
+  menu.innerHTML="";
+  photos.forEach((p,i)=>{
+    const b=document.createElement("button");
+    b.className="secondary";
+    b.style.display="block";
+    b.style.width="100%";
+    b.textContent="📸 "+(i+1)+". "+p.title;
+    b.onclick=()=>openPhoto(i);
+    menu.appendChild(b);
+  });
 }
-function openMemory(i){
- currentMemory=i;
- const m=memories[i];
- document.getElementById('memoryTitle').textContent=m.title;
- document.getElementById('memoryPhoto').src=m.photo;
- document.getElementById('memoryMessage').textContent=m.message;
- showPage('memory');
+function openPhoto(i){
+  photoIndex=i;
+  const p=photos[i];
+  document.getElementById("photoCounter").textContent=
+    "MEMORY "+(i+1)+" OF "+photos.length;
+  document.getElementById("photoTitle").textContent=p.title;
+  const img=document.getElementById("photoImage");
+  const fallback=document.getElementById("photoFallback");
+  img.style.display="block";
+  fallback.style.display="none";
+  img.src=p.file;
+  img.alt=p.title;
+  img.onerror=function(){
+    this.style.display="none";
+    fallback.style.display="flex";
+  };
+  document.getElementById("photoMessage").textContent=p.message;
+  document.getElementById("photoFrom").textContent=p.from;
+  show("photoPage");
 }
-function nextMemory(){
- if(currentMemory<memories.length-1)openMemory(currentMemory+1);
- else showPage('letter');
+function nextPhoto(){
+  if(photoIndex<photos.length-1) openPhoto(photoIndex+1);
+  else show("gifts");
 }
-function buildGifts(){
- const grid=document.getElementById('giftGrid');
- gifts.forEach((g,i)=>{
-  const div=document.createElement('div');
-  div.className='gift';
-  div.innerHTML='<span>🎁</span>';
-  const title=document.createElement('b');
-  title.textContent=g.title;
-  div.appendChild(title);
-  div.onclick=()=>openGift(i);
-  grid.appendChild(div);
- });
+function renderGiftMenu(){
+  const menu=document.getElementById("giftMenu");
+  menu.innerHTML="";
+  gifts.forEach((g,i)=>{
+    const b=document.createElement("button");
+    b.className="secondary";
+    b.style.display="block";
+    b.style.width="100%";
+    b.textContent="🎁 Gift "+(i+1);
+    b.onclick=()=>openGift(i);
+    menu.appendChild(b);
+  });
 }
 function openGift(i){
- currentGift=i;
- document.getElementById('giftTitle').textContent=gifts[i].title;
- document.getElementById('giftMessage').textContent=gifts[i].message;
- showPage('giftPage');
- party();
+  giftIndex=i;
+  giftOpened=false;
+  document.getElementById("giftCounter").textContent=
+    "GIFT "+(i+1)+" OF "+gifts.length;
+  document.getElementById("giftEmoji").textContent="🎁";
+  document.getElementById("giftTitle").textContent="A Little Surprise";
+  document.getElementById("giftMessage").textContent="Tap the gift to open it.";
+  document.getElementById("giftButton").style.display="inline-block";
+  document.getElementById("nextGiftButton").style.display="none";
+  show("giftPage");
+}
+function revealGift(){
+  if(giftOpened)return;
+  giftOpened=true;
+  const g=gifts[giftIndex];
+  document.getElementById("giftEmoji").textContent="🎀";
+  document.getElementById("giftTitle").textContent=g.title;
+  document.getElementById("giftMessage").textContent=g.message;
+  document.getElementById("giftButton").style.display="none";
+  document.getElementById("nextGiftButton").style.display="inline-block";
+  confetti();
 }
 function nextGift(){
- openGift((currentGift+1)%gifts.length);
+  if(giftIndex<gifts.length-1) openGift(giftIndex+1);
+  else show("final");
 }
-function blow(){
- if(candlesBlown)return;
- candlesBlown=true;
- document.querySelectorAll('.flame').forEach(f=>f.style.visibility='hidden');
- document.getElementById('wish').textContent=
- '🌟 Wish made! May all your dreams come true! 💖';
- party();
+function blowCandles(){
+  if(candlesBlown)return;
+  candlesBlown=true;
+  document.querySelectorAll(".candle").forEach(c=>c.classList.add("off"));
+  document.getElementById("candleText").textContent=
+    "Your wish is on its way to the universe! ✨ May your dreams come true.";
+  document.getElementById("blowButton").style.display="none";
+  document.getElementById("continueCandles").style.display="inline-block";
+  confetti();
 }
-document.querySelectorAll('.candle').forEach(c=>{
- c.addEventListener('click',()=>{
-  c.querySelector('.flame').style.visibility='hidden';
-  if([...document.querySelectorAll('.flame')].every(f=>
-  f.style.visibility==='hidden'))blow();
- });
-});
-function party(){
- const area=document.getElementById('party');
- const emojis=['🎉','🎊','✨','💖','🌸','⭐','🥳'];
- for(let i=0;i<65;i++){
-  const e=document.createElement('span');
-  e.className='confetti';
-  e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-  e.style.left=Math.random()*100+'%';
-  e.style.fontSize=(20+Math.random()*20)+'px';
-  e.style.animationDelay=Math.random()*.8+'s';
-  area.appendChild(e);
-  setTimeout(()=>e.remove(),3500);
- }
+function confetti(){
+  const box=document.getElementById("confetti");
+  const symbols=["🎉","✨","💖","🌸","🎊","💕"];
+  for(let i=0;i<45;i++){
+    const piece=document.createElement("span");
+    piece.className="confetti-piece";
+    piece.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    piece.style.left=Math.random()*100+"%";
+    piece.style.animationDelay=Math.random()*1.5+"s";
+    piece.style.fontSize=(14+Math.random()*15)+"px";
+    box.appendChild(piece);
+    setTimeout(()=>piece.remove(),4500);
+  }
 }
-buildGallery();
-buildGifts();
+function celebrate(){
+  confetti();
+  setTimeout(()=>alert("Happy Birthday, Bhagyashree! 🎂❤️\n\nKeep dreaming. Keep shining. You are so loved!"),150);
+}
+renderMemoryMenu();
+renderGiftMenu();
 </script>
 </body>
 </html>
